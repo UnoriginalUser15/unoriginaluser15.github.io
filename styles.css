@@ -32,13 +32,8 @@
     box-sizing: border-box;
 }
 
-main {
-    background: var(--primary);
-    background: linear-gradient(90deg, rgba(234,82,111,1) 0%, rgba(224,142,69,1) 100%);
-    background-repeat: no-repeat;
-
-    width: 100vw;
-    height: 100vh;
+#os {
+    display: none;
 }
 
 /*start up screen*/
@@ -111,7 +106,7 @@ main {
 /*main page*/
 
 /*task bar*/
-.taskbar {
+#taskbar {
     background-color: var(--inverse);
 
     position: fixed;
@@ -142,4 +137,14 @@ main {
 #start:active {
     background: var(--primary-tone);
     background: radial-gradient(circle, rgba(218,27,62,1) 0%, rgba(127,16,36,1) 100%);
+}
+
+/* desktop */
+#desktop {
+    background: var(--primary);
+    background: linear-gradient(90deg, rgba(234,82,111,1) 0%, rgba(224,142,69,1) 100%);
+    background-repeat: no-repeat;
+
+    width: 100vw;
+    height: 100vh;
 }
