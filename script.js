@@ -1,8 +1,5 @@
 setTimeout(function(){
     document.getElementById("start-up").style.display = "none";
-}, 5500);
-
-setTimeout(function(){
     document.getElementById("os").style.display = "block";
 }, 5500);
 
