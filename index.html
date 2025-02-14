@@ -20,21 +20,83 @@
     </div>
 
     <main id="os">
-        <div id="desktop">
-            <div id="window">
-                <!-- Include a header DIV with the same name as the draggable div, followed by "header" -->
-                <div id="windowheader">
-                    <p>window</p>
+        <div id="window-container">
+            
+            <!-- window 1 -->
+            <div class="window" id="window1">
+                <!-- make sure that the header is named 'id-name' + 'header' -->
+                <div class="windowheader">
+                    <p>window 1</p>
                     <div class="button-container">
-                        <button class="maximise-window" onclick="close_window()">□</button>
-                        <button class="close-window" onclick="close_window()">X</button>
+                        <!-- change the value passed in 'windowOpenClose()' to be the id of the window -->
+                        <button class="maximise-window" onclick="windowOpenClose('window1')">□</button>
+                        <button class="close-window" onclick="windowOpenClose('window1')">X</button>
                     </div>
                 </div>
-                <p>bingle</p>
-                <p>bangle</p>
-                <p>bongle dingle dangle, yikedy do yikedy da pim pom lippy tappy too tah</p>
+                
+                <div class="window-content">
+                    <p>bingle bongle dingle dangle, yikedy do yikedy da pim pom lippy tappy too tah</p>
+                    <p>bingle bongle dingle dangle, yikedy do yikedy da pim pom lippy tappy too tah</p>
+                    <p>bingle bongle dingle dangle, yikedy do yikedy da pim pom lippy tappy too tah</p>
+                    <p>bingle bongle dingle dangle, yikedy do yikedy da pim pom lippy tappy too tah</p>
+                    <p>bingle bongle dingle dangle, yikedy do yikedy da pim pom lippy tappy too tah</p>
+                    <p>bingle bongle dingle dangle, yikedy do yikedy da pim pom lippy tappy too tah</p>
+                    <p>bingle bongle dingle dangle, yikedy do yikedy da pim pom lippy tappy too tah</p>
+                </div>
+
                 <div class="resize-handle"></div>
             </div>
+
+            <!-- window 2 -->
+            <div class="window" id="window2">
+                <!-- make sure that the header is named 'id-name' + 'header' -->
+                <div class="windowheader">
+                    <p>window 2</p>
+                    <div class="button-container">
+                        <!-- change the value passed in 'windowOpenClose()' to be the id of the window -->
+                        <button class="maximise-window" onclick="windowOpenClose('window2')">□</button>
+                        <button class="close-window" onclick="windowOpenClose('window2')">X</button>
+                    </div>
+                </div>
+                
+                <div class="window-content">
+                    <p>bingle bongle dingle dangle, yikedy do yikedy da pim pom lippy tappy too tah</p>
+                    <p>bingle bongle dingle dangle, yikedy do yikedy da pim pom lippy tappy too tah</p>
+                    <p>bingle bongle dingle dangle, yikedy do yikedy da pim pom lippy tappy too tah</p>
+                    <p>bingle bongle dingle dangle, yikedy do yikedy da pim pom lippy tappy too tah</p>
+                    <p>bingle bongle dingle dangle, yikedy do yikedy da pim pom lippy tappy too tah</p>
+                    <p>bingle bongle dingle dangle, yikedy do yikedy da pim pom lippy tappy too tah</p>
+                    <p>bingle bongle dingle dangle, yikedy do yikedy da pim pom lippy tappy too tah</p>
+                </div>
+
+                <div class="resize-handle"></div>
+            </div>
+
+            <!-- window 3 -->
+            <div class="window" id="window3">
+                <!-- make sure that the header is named 'id-name' + 'header' -->
+                <div class="windowheader">
+                    <p>window 3</p>
+                    <div class="button-container">
+                        <!-- change the value passed in 'windowOpenClose()' to be the id of the window -->
+                        <button class="maximise-window" onclick="windowOpenClose('window3')">□</button>
+                        <button class="close-window" onclick="windowOpenClose('window3')">X</button>
+                    </div>
+                </div>
+                
+                <div class="window-content">
+                    <p>bingle bongle dingle dangle, yikedy do yikedy da pim pom lippy tappy too tah</p>
+                    <p>bingle bongle dingle dangle, yikedy do yikedy da pim pom lippy tappy too tah</p>
+                    <p>bingle bongle dingle dangle, yikedy do yikedy da pim pom lippy tappy too tah</p>
+                    <p>bingle bongle dingle dangle, yikedy do yikedy da pim pom lippy tappy too tah</p>
+                    <p>bingle bongle dingle dangle, yikedy do yikedy da pim pom lippy tappy too tah</p>
+                    <p>bingle bongle dingle dangle, yikedy do yikedy da pim pom lippy tappy too tah</p>
+                    <p>bingle bongle dingle dangle, yikedy do yikedy da pim pom lippy tappy too tah</p>
+                </div>
+
+                <div class="resize-handle"></div>
+            </div>
+
         </div>
 
         <footer class="taskbar">

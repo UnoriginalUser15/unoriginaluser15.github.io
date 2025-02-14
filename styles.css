@@ -32,6 +32,9 @@
     box-sizing: border-box;
 }
 
+body {
+    overflow: hidden;
+}
 
 /*start up screen*/
 #loading-main {
@@ -109,7 +112,7 @@
 
 
 /* desktop */
-#desktop {
+#window-container {
     background: var(--bold);
     background-repeat: no-repeat;
 
@@ -117,7 +120,7 @@
     height: 100vh;
 }
 
-#window {
+.window {
     background-color: var(--inverse);
     border: 0.125rem solid var(--secondary);
     border-radius: 0.5rem 0.5rem 0rem 0rem;
@@ -126,9 +129,9 @@
     text-align: center;
 
     resize: both;
-    overflow: auto;
-    min-width: 0px;
-    min-height: 0px;
+    overflow: hidden;
+
+    padding-bottom: 24px;
 
     width: 50vw;
     min-width: 256px;
@@ -137,10 +140,12 @@
     z-index: 9;
 }
 
-#windowheader {
+.windowheader {
     font-family: 'Zilla Slab', sans-serif;
     font-size: 1.25rem;
     
+    user-select: none;
+
     background-color: var(--secondary);
     color: var(--inverse);
     
@@ -150,7 +155,13 @@
     padding: 0 0.5rem;
 
     height: 2rem;
-    z-index: 10;
+    z-index: 100;
+}
+
+.window-content {
+    overflow-y: scroll;
+
+    height: 100%;
 }
 
 .button-container {
@@ -181,15 +192,15 @@
 
     height: 1.25rem;
     width: 1.25rem;
-}
 
-.close-window:hover {
-    background-color: var(--primary-tone);
-
-    border-top: 0.125rem solid var(--primary);
-    border-left: 0.125rem solid var(--primary);
-    border-bottom: 0.125rem solid var(--primary-shade);
-    border-right: 0.125rem solid var(--primary-shade);
+    &:hover {
+        background-color: var(--primary-tone);
+    
+        border-top: 0.125rem solid var(--primary);
+        border-left: 0.125rem solid var(--primary);
+        border-bottom: 0.125rem solid var(--primary-shade);
+        border-right: 0.125rem solid var(--primary-shade);
+    }
 }
 
 .maximise-window {
@@ -214,15 +225,15 @@
 
     height: 1.25rem;
     width: 1.25rem;
-}
+    
+    &:hover {
+        background-color: var(--accent-tone);
 
-.maximise-window:hover {
-    background-color: var(--accent-tone);
-
-    border-top: 0.125rem solid var(--accent);
-    border-left: 0.125rem solid var(--accent);
-    border-bottom: 0.125rem solid var(--accent-shade);
-    border-right: 0.125rem solid var(--accent-shade);
+        border-top: 0.125rem solid var(--accent);
+        border-left: 0.125rem solid var(--accent);
+        border-bottom: 0.125rem solid var(--accent-shade);
+        border-right: 0.125rem solid var(--accent-shade);
+    }
 }
 
 .resize-handle {
@@ -248,10 +259,11 @@ footer {
 .taskbar {
     background: linear-gradient(to bottom, var(--inverse) 0%, var(--inverse) 8.33%, #CECBB6 8.33%, #CECBB6 100%);
     
-    display: flex;
     position: fixed;
 
-    width: 100vw;
+    bottom: 0;
+    right: 0;
+    left: 0;
     height: 3rem;
     z-index: 500;
 }
@@ -282,13 +294,13 @@ footer {
 
     width: 128px;
     height: 3rem;
-}
 
-#start:active {
-    background: var(--primary-tone);
-    background: linear-gradient(145deg, rgba(218,27,62,1) 0%, rgba(127,16,36,1) 100%);
-    border-top: 0.25rem solid var(--primary-tone);
-    border-left: 0.25rem solid var(--primary-tone);
-    border-bottom: 0.25rem solid var(--primary-shade);
-    border-right: 0.25rem solid var(--primary-shade);
+    &:active {
+        background: var(--primary-tone);
+        background: linear-gradient(145deg, rgba(218,27,62,1) 0%, rgba(127,16,36,1) 100%);
+        border-top: 0.25rem solid var(--primary-tone);
+        border-left: 0.25rem solid var(--primary-tone);
+        border-bottom: 0.25rem solid var(--primary-shade);
+        border-right: 0.25rem solid var(--primary-shade);
+    }
 }
