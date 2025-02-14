@@ -32,6 +32,7 @@
     box-sizing: border-box;
 }
 
+
 /*start up screen*/
 #loading-main {
     flex-grow: 1;
@@ -99,40 +100,149 @@
     100% { width: 100%; }
 }
 
+
 /*main page*/
 
 #os {
     display: none;
 }
 
-/*task bar*/
-footer {
-    bottom: 0;
-}
 
 /* desktop */
-.desktop {
-    background: var(--accent);
+#desktop {
+    background: var(--bold);
     background-repeat: no-repeat;
 
     width: 100vw;
     height: 100vh;
 }
 
-#mydiv {
-    position: absolute;
-    z-index: 9;
+#window {
     background-color: var(--inverse);
-    border: 1px solid var(--bold);
+    border: 0.125rem solid var(--secondary);
+    border-radius: 0.5rem 0.5rem 0rem 0rem;
+    
+    position: absolute;
     text-align: center;
+
+    resize: both;
+    overflow: auto;
+    min-width: 0px;
+    min-height: 0px;
+
+    width: 50vw;
+    min-width: 256px;
+    height: 25vh;
+    min-height: 128px;
+    z-index: 9;
 }
 
-#mydivheader {
-    padding: 10px;
-    cursor: move;
-    z-index: 10;
+#windowheader {
+    font-family: 'Zilla Slab', sans-serif;
+    font-size: 1.25rem;
+    
     background-color: var(--secondary);
     color: var(--inverse);
+    
+    display: flex;
+    align-items: center;
+
+    padding: 0 0.5rem;
+
+    height: 2rem;
+    z-index: 10;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+}
+
+.close-window {
+    font-family: 'Carlito', sans;
+    font-weight: 900;
+    font-size: 0.8rem;
+    
+    background-color: var(--primary);
+    color: var(--inverse);
+
+    border-top: 0.125rem solid var(--primary-tint);
+    border-left: 0.125rem solid var(--primary-tint);
+    border-bottom: 0.125rem solid var(--primary-tone);
+    border-right: 0.125rem solid var(--primary-tone);
+
+    text-align: center;
+
+    display: inline;
+
+    right: 0;
+    margin: 0 0.25rem;
+
+    height: 1.25rem;
+    width: 1.25rem;
+}
+
+.close-window:hover {
+    background-color: var(--primary-tone);
+
+    border-top: 0.125rem solid var(--primary);
+    border-left: 0.125rem solid var(--primary);
+    border-bottom: 0.125rem solid var(--primary-shade);
+    border-right: 0.125rem solid var(--primary-shade);
+}
+
+.maximise-window {
+    font-family: 'Carlito', sans;
+    font-weight: 900;
+    font-size: 0.8rem;
+    
+    background-color: var(--accent);
+    color: var(--inverse);
+
+    border-top: 0.125rem solid var(--accent-tint);
+    border-left: 0.125rem solid var(--accent-tint);
+    border-bottom: 0.125rem solid var(--accent-tone);
+    border-right: 0.125rem solid var(--accent-tone);
+
+    text-align: center;
+
+    display: inline;
+
+    right: 0;
+    margin: 0 0.25rem;
+
+    height: 1.25rem;
+    width: 1.25rem;
+}
+
+.maximise-window:hover {
+    background-color: var(--accent-tone);
+
+    border-top: 0.125rem solid var(--accent);
+    border-left: 0.125rem solid var(--accent);
+    border-bottom: 0.125rem solid var(--accent-shade);
+    border-right: 0.125rem solid var(--accent-shade);
+}
+
+.resize-handle {
+    background-color: var(--inverse);
+    
+    cursor: se-resize;
+    
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    width: 10px;
+    height: 10px;
+}
+
+
+/* taskbar */
+
+footer {
+    bottom: 0;
 }
 
 .taskbar {

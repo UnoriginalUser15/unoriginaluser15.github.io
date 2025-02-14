@@ -9,7 +9,10 @@ setTimeout(function(){
 // make the openable windows draggable
 // yes this is shamelessly stolen from w3schools
 // i'm goint to adapt it more in the morning (it's 4:13 am)
-dragElement(document.getElementById("mydiv"));
+
+// update: i tried to adapt it to make it so the window can't be dragged into the void
+// the important word there is 'tried'
+dragElement(document.getElementById("window"));
 
 function dragElement(elmnt) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -49,5 +52,15 @@ function dragElement(elmnt) {
         // stop moving when mouse button is released
         document.onmouseup = null;
         document.onmousemove = null;
+    }
+}
+
+// closes a window that has been opened
+function close_window() {
+    var x = document.getElementById("window");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
     }
 }
