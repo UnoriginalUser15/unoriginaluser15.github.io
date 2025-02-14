@@ -11,7 +11,7 @@ setTimeout(function(){
 // i'm goint to adapt it more in the morning (it's 4:13 am)
 
 // update: i tried to adapt it to make it so the window can't be dragged into the void
-// the important word there is 'tried'
+// the important word there is 'tried' (i'm going to end it)
 dragElement(document.getElementById("window"));
 
 function dragElement(elmnt) {
