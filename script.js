@@ -89,8 +89,6 @@ function dragElement(elmnt, window_order) {
         for (const temp_id of window_order){
             document.getElementById(temp_id).style.zIndex = i;
             i += 1
-            
-            console.log(temp_id, i);
         }
     }
 }
