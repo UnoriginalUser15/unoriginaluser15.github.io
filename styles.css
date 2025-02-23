@@ -120,6 +120,22 @@ body {
     height: 100vh;
 }
 
+#window1 {
+    width: 256px;
+    height: 768px;
+}
+
+#window2 {
+    width: 518px;
+    height: 518px;
+}
+
+#window3 {
+    width: 320px;
+    height: 640px;
+}
+
+
 .window {
     background-color: var(--inverse);
     border: 0.125rem solid var(--secondary);
@@ -257,7 +273,7 @@ footer {
 }
 
 .taskbar {
-    background: linear-gradient(to bottom, var(--inverse) 0%, var(--inverse) 8.33%, #CECBB6 8.33%, #CECBB6 100%);
+    background: linear-gradient(to bottom, var(--accent-tint) 0%, var(--accent-tint) 8.33%, var(--accent) 8.33%, var(--accent) 100%);
     
     position: fixed;
 
@@ -269,8 +285,8 @@ footer {
 }
 
 #main-taskbar {
-    background-color: #CECBB6;
-    border-top: 0.25rem solid var(--inverse);
+    background-color: var(--accent-tone);
+    border-top: 0.25rem solid var(--accent);
 
     flex-grow: 1;
 
