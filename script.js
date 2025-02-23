@@ -1,7 +1,7 @@
 setTimeout(function(){
     document.getElementById("start-up").style.display = "none";
     document.getElementById("os").style.display = "block";
-}, 5500);
+}, 0);
 
 // 5500 is the actual time that should be used in the code above
 // 0 is just for testing/dev purposes
@@ -18,12 +18,15 @@ setTimeout(function(){
 var window_order = [];
 const desktop = document.getElementById("window-container");
 
+// this creates the array of window ids
 for (const window of desktop.children){
-    dragElement(window);
     window_order.push(window.getAttribute("id"))
 }
 
-console.log(window_order)
+// this calls the dragElement() function
+for (const window of desktop.children){
+    dragElement(window, window_order);
+}
 
 function dragElement(elmnt, window_order) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -34,6 +37,8 @@ function dragElement(elmnt, window_order) {
         // otherwise, move the window from anywhere inside the window
         elmnt.onmousedown = dragMouseDown;
     }
+
+    elmnt.onmousedown = orderWindows;
 
     function dragMouseDown(e) {
         e = e || window.event;
@@ -67,19 +72,35 @@ function dragElement(elmnt, window_order) {
         // stop moving when mouse button is released
         document.onmouseup = null;
         document.onmousemove = null;
-        
-        // moves the window back to 10 on the z-index
+    }
+
+    function orderWindows() {
         const id = elmnt.getAttribute("id")
-        var new_window_order = window_order.filter()
+
+        // removes the previously clicked window's id from the array and puts it on the end
+        const index = window_order.indexOf(id)
+        if (index !== -1) {
+            window_order.splice(index, 1);
+        }
+        window_order.push(id)
+
+        // orders the z-index of the windows based on order of last clicked
+        var i = 10
+        for (const temp_id of window_order){
+            document.getElementById(temp_id).style.zIndex = i;
+            i += 1
+            
+            console.log(temp_id, i);
+        }
     }
 }
 
 // closes a window that has been opened
 function windowOpenClose(id) {
-    var x = document.getElementById(id);
-    if (x.style.display === "none") {
-        x.style.display = "block";
+    var window = document.getElementById(id);
+    if (window.style.display === "none") {
+        window.style.display = "block";
     } else {
-        x.style.display = "none";
+        window.style.display = "none";
     }
 }
