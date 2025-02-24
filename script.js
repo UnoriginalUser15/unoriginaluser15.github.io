@@ -1,7 +1,7 @@
 setTimeout(function(){
     document.getElementById("start-up").style.display = "none";
     document.getElementById("os").style.display = "block";
-}, 5500);
+}, 0);
 
 // 5500 is the actual time that should be used in the code above
 // 0 is just for testing/dev purposes
@@ -13,7 +13,7 @@ setTimeout(function(){
 // update: i tried to adapt it to make it so the window can't be dragged into the void
 // the important word there is 'tried' (i'm going to end it)
 
-// finish the system that controls the window order
+// after a 5 minute coding adventure (2 hours), the system that controls the order of windows is done
 
 var window_order = [];
 const desktop = document.getElementById("window-container");
@@ -93,12 +93,14 @@ function dragElement(elmnt, window_order) {
     }
 }
 
-// closes a window that has been opened
-function windowOpenClose(id) {
+// closes relevant window
+function windowClose(id) {
     var window = document.getElementById(id);
-    if (window.style.display === "none") {
-        window.style.display = "block";
-    } else {
-        window.style.display = "none";
-    }
+    window.style.display = "none";
+}
+
+// opens relevant window
+function windowOpen(id) {
+    var window = document.getElementById(id);
+    window.style.display = "block";
 }
