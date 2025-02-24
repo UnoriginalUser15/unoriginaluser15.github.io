@@ -1,7 +1,7 @@
 setTimeout(function(){
     document.getElementById("start-up").style.display = "none";
     document.getElementById("os").style.display = "block";
-}, 5500);
+}, 0);
 
 // 5500 is the actual time that should be used in the code above
 // 0 is just for testing/dev purposes
@@ -93,14 +93,26 @@ function dragElement(elmnt, window_order) {
     }
 }
 
-// closes relevant window
-function windowClose(id) {
+// opens window
+function windowOpen(id, task_id) {
     var window = document.getElementById(id);
-    window.style.display = "none";
+    var taskbar_icon = document.getElementById(task_id)
+    
+    window.style.display = "block";
+    taskbar_icon.style.display = "flex";
 }
 
-// opens relevant window
-function windowOpen(id) {
+// closes window
+function windowClose(id, task_id) {
     var window = document.getElementById(id);
-    window.style.display = "block";
+    var taskbar_icon = document.getElementById(task_id)
+    
+    window.style.display = "none";
+    taskbar_icon.style.display = "none";
+}
+
+// minimises window
+function windowMinimise(id) {
+    var window = document.getElementById(id);
+    window.style.display = "none";
 }

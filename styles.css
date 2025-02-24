@@ -1,6 +1,5 @@
 /* imports for the fonts I'm using */
-@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&family=Overpass:ital,wght@0,100..900;1,100..900&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 :root {
     /* base colours */
@@ -128,9 +127,11 @@ body {
 }
 
 .shortcut {
-    font-family: 'Carlito', sans;
-    font-weight: 400;
+    font-family: 'Lato', serif;
+    font-weight: 350;
     font-size: 1rem;
+
+    user-select: none;
 
     background-color: var(--transparent);
     color: var(--inverse);
@@ -139,7 +140,7 @@ body {
     
     align-items: center;
 
-    margin: 1.25rem;
+    margin: 1rem;
     padding: 0.25rem;
     
     width: 5.5rem;
@@ -181,7 +182,7 @@ body {
 
 #window1 {
     width: 256px;
-    height: 768px;
+    height: 518px;
 }
 
 #window2 {
@@ -199,7 +200,8 @@ body {
     background-color: var(--inverse);
     border: 0.125rem solid var(--secondary);
     border-radius: 0.5rem 0.5rem 0rem 0rem;
-    
+    outline: 0.125rem solid var(--secondary-shade);
+
     display: none;
     position: absolute;
     text-align: center;
@@ -247,9 +249,9 @@ body {
 }
 
 .close-window {
-    font-family: 'Carlito', sans;
-    font-weight: 900;
-    font-size: 0.8rem;
+    font-family: 'Lato', serif;
+    font-weight: 600;
+    font-size: 0.85rem;
     
     background-color: var(--primary);
     color: var(--inverse);
@@ -279,10 +281,10 @@ body {
     }
 }
 
-.maximise-window {
-    font-family: 'Carlito', sans;
-    font-weight: 900;
-    font-size: 0.8rem;
+.maxmin-window {
+    font-family: 'Lato', serif;
+    font-weight: 600;
+    font-size: 0.85rem;
     
     background-color: var(--accent);
     color: var(--inverse);
@@ -313,7 +315,7 @@ body {
 }
 
 .resize-handle {
-    background-color: var(--inverse);
+    background-color: var(--secondary);
     
     cursor: se-resize;
     
@@ -332,9 +334,19 @@ footer {
     bottom: 0;
 }
 
+#taskbar-container {
+    background-color: var(--accent-tone);
+    border-top: 0.25rem solid var(--accent);
+
+    display: flex;
+
+    height: 3rem;
+}
+
 .taskbar {
-    background: linear-gradient(to bottom, var(--accent-tint) 0%, var(--accent-tint) 8.33%, var(--accent) 8.33%, var(--accent) 100%);
+    background: linear-gradient(to bottom, var(--accent) 0%, var(--accent) 8.33%, var(--accent-tone) 8.33%, var(--accent-tone) 100%);
     
+    display: flex;
     position: fixed;
 
     bottom: 0;
@@ -344,19 +356,46 @@ footer {
     z-index: 500;
 }
 
-#main-taskbar {
-    background-color: var(--accent-tone);
-    border-top: 0.25rem solid var(--accent);
+.taskbar-button {
+    font-family: 'Zilla Slab', sans-serif;
+    font-size: 1rem;
 
-    flex-grow: 1;
+    user-select: none;
 
-    height: 3rem;
+    background: var(--secondary);
+    color: var(--inverse);
+
+    display: none;
+
+    border-top: 0.25rem solid var(--secondary-tint);
+    border-left: 0.25rem solid var(--secondary-tint);
+    border-bottom: 0.25rem solid var(--secondary-tone);
+    border-right: 0.25rem solid var(--secondary-tone);
+
+    text-align: left;
+    
+    margin: 0.125rem 0.125rem;
+    padding: 0rem 0.125rem;
+
+    width: 10rem;
+    height: 2.25rem;
+
+    &:active {
+        background: var(--secondary-tone);
+    
+        border-top: 0.25rem solid var(--secondary-shade);
+        border-left: 0.25rem solid var(--secondary-shade);
+        border-bottom: 0.25rem solid var(--secondary);
+        border-right: 0.25rem solid var(--secondary);
+    }
 }
 
 #start {
     font-family: 'Zilla Slab', sans-serif;
     font-size: 1.75rem;
     font-weight: 600;
+
+    user-select: none;
 
     background: var(--primary);
     background: linear-gradient(145deg, rgba(234,82,111,1) 0%, rgba(218,27,62,1) 100%);
@@ -368,15 +407,17 @@ footer {
     border-right: 0.25rem solid var(--primary-tone);
     border-radius: 0px 8px 16px 0px;
 
+    margin: 0 0.5rem 0 0;
+
     width: 128px;
     height: 3rem;
 
     &:active {
         background: var(--primary-tone);
-        background: linear-gradient(145deg, rgba(218,27,62,1) 0%, rgba(127,16,36,1) 100%);
-        border-top: 0.25rem solid var(--primary-tone);
-        border-left: 0.25rem solid var(--primary-tone);
-        border-bottom: 0.25rem solid var(--primary-shade);
-        border-right: 0.25rem solid var(--primary-shade);
+        background: linear-gradient(145deg, rgba(127,16,36,1) 0%, rgba(218,27,62,1) 100%);
+        border-top: 0.25rem solid var(--primary-shade);
+        border-left: 0.25rem solid var(--primary-shade);
+        border-bottom: 0.25rem solid var(--primary-tone);
+        border-right: 0.25rem solid var(--primary-tone);
     }
 }

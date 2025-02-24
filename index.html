@@ -21,16 +21,16 @@
 
     <main id="os">
         <div id="shortcut-container">
-            <!-- change the value passed in 'windowOpen()' to be the id of the window related to the shortcut -->
-            <button class="shortcut" ondblclick="windowOpen('window1')">
+            <!-- change the value passed in 'windowOpen()' to be the id of the window + taskbar related to the shortcut -->
+            <button class="shortcut" ondblclick="windowOpen('window1', 'taskbar-icon-1')">
                 <IMG class="shortcut-icon" src="./assets/placeholder_img1.jpg"></IMG>
                 <p>window 1</p>
             </button>
-            <button class="shortcut" ondblclick="windowOpen('window2')">
+            <button class="shortcut" ondblclick="windowOpen('window2', 'taskbar-icon-2')">
                 <IMG class="shortcut-icon" src="./assets/placeholder_img2.png"></IMG>
                 window 2
             </button>
-            <button class="shortcut" ondblclick="windowOpen('window3')">
+            <button class="shortcut" ondblclick="windowOpen('window3', 'taskbar-icon-3')">
                 <IMG class="shortcut-icon" src="./assets/shrek1.gif"></IMG>
                 window 3
             </button>
@@ -45,8 +45,9 @@
                     <p>window 1</p>
                     <div class="button-container">
                         <!-- change the value passed in 'windowClose()' to be the id of the window -->
-                        <button class="maximise-window" onclick="windowClose('window1')">□</button>
-                        <button class="close-window" onclick="windowClose('window1')">X</button>
+                        <button class="maxmin-window" onclick="windowMinimise('window1')">-</button>
+                        <button class="maxmin-window" onclick="windowClose('window1', 'taskbar-icon-1')">□</button>
+                        <button class="close-window" onclick="windowClose('window1', 'taskbar-icon-1')">X</button>
                     </div>
                 </div>
                 
@@ -70,8 +71,9 @@
                     <p>window 2</p>
                     <div class="button-container">
                         <!-- change the value passed in 'windowClose()' to be the id of the window -->
-                        <button class="maximise-window" onclick="windowClose('window2')">□</button>
-                        <button class="close-window" onclick="windowClose('window2')">X</button>
+                        <button class="maxmin-window" onclick="windowMinimise('window2')">-</button>
+                        <button class="maxmin-window" onclick="windowClose('window2', 'taskbar-icon-2')">□</button>
+                        <button class="close-window" onclick="windowClose('window2', 'taskbar-icon-2')">X</button>
                     </div>
                 </div>
                 
@@ -94,9 +96,10 @@
                 <div class="windowheader">
                     <p>window 3</p>
                     <div class="button-container">
-                        <!-- change the value passed in 'windowClose()' to be the id of the window -->
-                        <button class="maximise-window" onclick="windowClose('window3')">□</button>
-                        <button class="close-window" onclick="windowClose('window3')">X</button>
+                        <!-- change the value passed in 'windowClose()' to be the id of the window and taskbar element -->
+                        <button class="maxmin-window" onclick="windowMinimise('window3')">-</button>
+                        <button class="maxmin-window" onclick="windowClose('window3', 'taskbar-icon-3')">□</button>
+                        <button class="close-window" onclick="windowClose('window3', 'taskbar-icon-3')">X</button>
                     </div>
                 </div>
                 
@@ -119,7 +122,12 @@
             <button id="start">
                 Start
             </button>
-            <div id="main-taskbar"></div>
+            <div id="taskbar-container">
+                <!-- change the value passed in 'windowOpen()' to be the id of the window related to the taskbar button -->
+                <button class="taskbar-button" id="taskbar-icon-1" onclick="windowOpen('window1', 'taskbar-icon-1')">window 1</button>
+                <button class="taskbar-button" id="taskbar-icon-2" onclick="windowOpen('window2', 'taskbar-icon-2')">window 2</button>
+                <button class="taskbar-button"id="taskbar-icon-3" onclick="windowOpen('window3', 'taskbar-icon-3')">window 3</button>
+            </div>
         </footer>
     </main>
 
