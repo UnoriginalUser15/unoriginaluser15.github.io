@@ -20,6 +20,22 @@
     </div>
 
     <main id="os">
+        <div id="shortcut-container">
+            <!-- change the value passed in 'windowOpen()' to be the id of the window related to the shortcut -->
+            <button class="shortcut" ondblclick="windowOpen('window1')">
+                <IMG class="shortcut-icon" src="./assets/placeholder_img1.jpg"></IMG>
+                <p>window 1</p>
+            </button>
+            <button class="shortcut" ondblclick="windowOpen('window2')">
+                <IMG class="shortcut-icon" src="./assets/placeholder_img2.png"></IMG>
+                window 2
+            </button>
+            <button class="shortcut" ondblclick="windowOpen('window3')">
+                <IMG class="shortcut-icon" src="./assets/shrek1.gif"></IMG>
+                window 3
+            </button>
+        </div>
+
         <div id="window-container">
             
             <!-- window 1 -->
@@ -28,9 +44,9 @@
                 <div class="windowheader">
                     <p>window 1</p>
                     <div class="button-container">
-                        <!-- change the value passed in 'windowOpenClose()' to be the id of the window -->
-                        <button class="maximise-window" onclick="windowOpenClose('window1')">□</button>
-                        <button class="close-window" onclick="windowOpenClose('window1')">X</button>
+                        <!-- change the value passed in 'windowClose()' to be the id of the window -->
+                        <button class="maximise-window" onclick="windowClose('window1')">□</button>
+                        <button class="close-window" onclick="windowClose('window1')">X</button>
                     </div>
                 </div>
                 
@@ -53,9 +69,9 @@
                 <div class="windowheader">
                     <p>window 2</p>
                     <div class="button-container">
-                        <!-- change the value passed in 'windowOpenClose()' to be the id of the window -->
-                        <button class="maximise-window" onclick="windowOpenClose('window2')">□</button>
-                        <button class="close-window" onclick="windowOpenClose('window2')">X</button>
+                        <!-- change the value passed in 'windowClose()' to be the id of the window -->
+                        <button class="maximise-window" onclick="windowClose('window2')">□</button>
+                        <button class="close-window" onclick="windowClose('window2')">X</button>
                     </div>
                 </div>
                 
@@ -78,9 +94,9 @@
                 <div class="windowheader">
                     <p>window 3</p>
                     <div class="button-container">
-                        <!-- change the value passed in 'windowOpenClose()' to be the id of the window -->
-                        <button class="maximise-window" onclick="windowOpenClose('window3')">□</button>
-                        <button class="close-window" onclick="windowOpenClose('window3')">X</button>
+                        <!-- change the value passed in 'windowClose()' to be the id of the window -->
+                        <button class="maximise-window" onclick="windowClose('window3')">□</button>
+                        <button class="close-window" onclick="windowClose('window3')">X</button>
                     </div>
                 </div>
                 

@@ -24,6 +24,9 @@
     --primary-shade: #7F1024;
     --secondary-shade: #8C4E18;
     --accent-shade: #7D3B6C;
+
+    /* misc */
+    --transparent: rgba(0, 0, 0, 0)
 }
 
 * {
@@ -107,17 +110,73 @@ body {
 /*main page*/
 
 #os {
-    display: none;
-}
-
-
-/* desktop */
-#window-container {
     background: var(--bold);
     background-repeat: no-repeat;
 
     width: 100vw;
     height: 100vh;
+}
+
+
+/* desktop */
+
+#shortcut-container {
+    float: left;
+
+    width: 8rem;
+    z-index: 2;
+}
+
+.shortcut {
+    font-family: 'Carlito', sans;
+    font-weight: 400;
+    font-size: 1rem;
+
+    background-color: var(--transparent);
+    color: var(--inverse);
+
+    border-color: var(--transparent);
+    
+    align-items: center;
+
+    margin: 1.25rem;
+    padding: 0.25rem;
+    
+    width: 5.5rem;
+    height: 5.5rem;
+
+    &:hover {
+        background-color: rgba(222, 186, 213, 0.25);
+
+        border-top: 0.125rem dotted rgba(201, 139, 185, 0.5);
+        border-left: 0.125rem dotted rgba(201, 139, 185, 0.5);
+        border-bottom: 0.125rem dotted rgba(201, 139, 185, 0.5);
+        border-right: 0.125rem dotted rgba(201, 139, 185, 0.5);
+        outline: 0.125rem solid rgba(222, 186, 213, 0.25);
+    }
+
+    &:focus {
+        background-color:rgba(222, 186, 213, 0.5);
+
+        border-top: 0.125rem solid rgba(201, 139, 185, 0.75);
+        border-left: 0.125rem solid rgba(201, 139, 185, 0.75);
+        border-bottom: 0.125rem solid rgba(201, 139, 185, 0.75);
+        border-right: 0.125rem solid rgba(201, 139, 185, 0.75);
+        outline: 0.125rem solid rgba(222, 186, 213, 0.5);
+    }
+}
+
+.shortcut-icon {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* windows */
+
+#window-container {
+    float: right;
+    width: 90vw;
+    z-index: 2;
 }
 
 #window1 {
@@ -141,6 +200,7 @@ body {
     border: 0.125rem solid var(--secondary);
     border-radius: 0.5rem 0.5rem 0rem 0rem;
     
+    display: none;
     position: absolute;
     text-align: center;
 
