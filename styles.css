@@ -18,6 +18,7 @@
     --primary-tone: #DA1B3E;
     --secondary-tone: #C06B21;
     --accent-tone: #A64E90;
+    --inverse-tone: #DEDCCE;
 
     /* shades */
     --primary-shade: #7F1024;
@@ -123,6 +124,7 @@ body {
     float: left;
 
     width: 8rem;
+    height: 100vh;
     z-index: 2;
 }
 
@@ -175,8 +177,7 @@ body {
 /* windows */
 
 #window-container {
-    float: right;
-    width: 90vw;
+    display: flexbox;
     z-index: 2;
 }
 
@@ -260,6 +261,7 @@ body {
     border-left: 0.125rem solid var(--primary-tint);
     border-bottom: 0.125rem solid var(--primary-tone);
     border-right: 0.125rem solid var(--primary-tone);
+    outline: 0.125rem solid var(--secondary-shade);
 
     text-align: center;
 
@@ -279,6 +281,13 @@ body {
         border-bottom: 0.125rem solid var(--primary-shade);
         border-right: 0.125rem solid var(--primary-shade);
     }
+
+    &:active {
+        border-top: 0.125rem solid var(--primary-shade);
+        border-left: 0.125rem solid var(--primary-shade);
+        border-bottom: 0.125rem solid var(--primary);
+        border-right: 0.125rem solid var(--primary);
+    }
 }
 
 .maxmin-window {
@@ -293,6 +302,7 @@ body {
     border-left: 0.125rem solid var(--accent-tint);
     border-bottom: 0.125rem solid var(--accent-tone);
     border-right: 0.125rem solid var(--accent-tone);
+    outline: 0.125rem solid var(--secondary-shade);
 
     text-align: center;
 
@@ -312,10 +322,18 @@ body {
         border-bottom: 0.125rem solid var(--accent-shade);
         border-right: 0.125rem solid var(--accent-shade);
     }
+
+    &:active {
+        border-top: 0.125rem solid var(--accent-shade);
+        border-left: 0.125rem solid var(--accent-shade);
+        border-bottom: 0.125rem solid var(--accent);
+        border-right: 0.125rem solid var(--accent);
+    }
 }
 
 .resize-handle {
-    background-color: var(--secondary);
+    background: rgb(241,240,234);
+    background: linear-gradient(135deg, rgba(241,240,234,1) 0%, rgba(241,240,234,1) 50%, rgba(224,142,69,1) 50%, rgba(224,142,69,1) 100%);
     
     cursor: se-resize;
     
@@ -335,8 +353,8 @@ footer {
 }
 
 #taskbar-container {
-    background-color: var(--accent-tone);
-    border-top: 0.25rem solid var(--accent);
+    background-color: var(--inverse-tone);
+    border-top: 0.25rem solid var(--inverse);
 
     display: flex;
 
@@ -344,7 +362,7 @@ footer {
 }
 
 .taskbar {
-    background: linear-gradient(to bottom, var(--accent) 0%, var(--accent) 8.33%, var(--accent-tone) 8.33%, var(--accent-tone) 100%);
+    background: linear-gradient(to bottom, var(--inverse) 0%, var(--inverse) 8.33%, var(--inverse-tone) 8.33%, var(--inverse-tone) 100%);
     
     display: flex;
     position: fixed;
