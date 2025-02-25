@@ -365,8 +365,6 @@ footer {
     background: var(--secondary);
     color: var(--inverse);
 
-    display: none;
-
     border-top: 0.25rem solid var(--secondary-tint);
     border-left: 0.25rem solid var(--secondary-tint);
     border-bottom: 0.25rem solid var(--secondary-tone);
