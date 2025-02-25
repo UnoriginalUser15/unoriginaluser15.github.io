@@ -40,9 +40,9 @@
             
             <!-- window 1 -->
             <div class="window" id="window1">
-                <!-- make sure that the header is named 'id-name' + 'header' -->
                 <div class="windowheader">
-                    <p>window 1</p>
+                    <!-- make sure that the id is named 'window' + 'number' + 'Name' -->
+                    <p id="window1Name">window 1</p>
                     <div class="button-container">
                         <!-- change the value passed in 'windowClose()' to be the id of the window -->
                         <button class="maxmin-window" onclick="windowMinimise('window1')">-</button>
@@ -66,9 +66,9 @@
 
             <!-- window 2 -->
             <div class="window" id="window2">
-                <!-- make sure that the header is named 'id-name' + 'header' -->
                 <div class="windowheader">
-                    <p>window 2</p>
+                    <!-- make sure that the id is named 'window' + 'number' + 'Name' -->
+                    <p id="window2Name">window 2</p>
                     <div class="button-container">
                         <!-- change the value passed in 'windowClose()' to be the id of the window -->
                         <button class="maxmin-window" onclick="windowMinimise('window2')">-</button>
@@ -92,9 +92,9 @@
 
             <!-- window 3 -->
             <div class="window" id="window3">
-                <!-- make sure that the header is named 'id-name' + 'header' -->
                 <div class="windowheader">
-                    <p>window 3</p>
+                    <!-- make sure that the id is named 'window' + 'number' + 'Name' -->
+                    <p id="window3Name">window 3</p>
                     <div class="button-container">
                         <!-- change the value passed in 'windowClose()' to be the id of the window and taskbar element -->
                         <button class="maxmin-window" onclick="windowMinimise('window3')">-</button>
@@ -122,12 +122,8 @@
             <button id="start">
                 Start
             </button>
-            <div id="taskbar-container">
-                <!-- change the value passed in 'windowOpen()' to be the id of the window related to the taskbar button -->
-                <button class="taskbar-button" id="taskbar-icon-1" onclick="windowOpen('window1', 'taskbar-icon-1')">window 1</button>
-                <button class="taskbar-button" id="taskbar-icon-2" onclick="windowOpen('window2', 'taskbar-icon-2')">window 2</button>
-                <button class="taskbar-button"id="taskbar-icon-3" onclick="windowOpen('window3', 'taskbar-icon-3')">window 3</button>
-            </div>
+            <!-- contains all the taskbar buttons that are created in scripts.js -->
+            <div id="taskbar-container"></div>
         </footer>
     </main>
 
