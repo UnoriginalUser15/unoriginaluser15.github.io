@@ -28,6 +28,7 @@ for (const window of desktop.children){
     dragElement(window, window_order);
 }
 
+// controls everything to do with dragging a window
 function dragElement(elmnt, window_order) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
     if (elmnt.querySelector(".windowheader")) {
@@ -64,7 +65,7 @@ function dragElement(elmnt, window_order) {
         elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
 
         // makes the selected window be above all other windows
-        const id = elmnt.getAttribute("id")
+        const id = elmnt.getAttribute("id");
         document.getElementById(id).style.zIndex = "50";
     }
 
@@ -75,40 +76,97 @@ function dragElement(elmnt, window_order) {
     }
 
     function orderWindows() {
-        const id = elmnt.getAttribute("id")
+        const id = elmnt.getAttribute("id");
 
         // removes the previously clicked window's id from the array and puts it on the end
-        const index = window_order.indexOf(id)
+        const index = window_order.indexOf(id);
         if (index !== -1) {
             window_order.splice(index, 1);
         }
-        window_order.push(id)
+        window_order.push(id);
 
         // orders the z-index of the windows based on order of last clicked
-        var i = 10
+        var i = 10;
         for (const temp_id of window_order){
             document.getElementById(temp_id).style.zIndex = i;
-            i += 1
+            i += 1;
         }
     }
 }
 
-// opens window
+// opens window and creates taskbar button
 function windowOpen(id, task_id) {
-    var window = document.getElementById(id);
-    var taskbar_icon = document.getElementById(task_id)
-    
-    window.style.display = "block";
-    taskbar_icon.style.display = "flex";
+    // only creates a taskbar button if it doesn't exist
+    if (document.getElementById(task_id) == null) {
+        // makes the window visible
+        const window = document.getElementById(id);
+        window.style.display = "block";
+
+        // creates the taskbar button
+        const taskbar = document.getElementById("taskbar-container");
+
+        const taskbar_button = document.createElement("button");
+        const button_text = document.createTextNode(document.getElementById(id + "Name").textContent);
+
+        taskbar_button.appendChild(button_text);
+        taskbar_button.setAttribute("class", "taskbar-button");
+        taskbar_button.setAttribute("id", task_id);
+
+        const task_function = "taskbarClick('" + id + "')"
+        taskbar_button.setAttribute("onclick", task_function);
+
+        taskbar.appendChild(taskbar_button);
+    } else {
+        // makes the window visible
+        const window = document.getElementById(id);
+        window.style.display = "block";
+    }
+    // removes the previously clicked window's id from the array and puts it on the end
+    const index = window_order.indexOf(id);
+    if (index !== -1) {
+        window_order.splice(index, 1);
+    }
+    window_order.push(id);
+
+    // orders the z-index of the windows based on order of last clicked
+    var i = 10;
+    for (const temp_id of window_order){
+        document.getElementById(temp_id).style.zIndex = i;
+        i += 1;
+    }
 }
 
-// closes window
+
+function taskbarClick(id) {
+    const window = document.getElementById(id);
+    // if the window is minimised it will be opened and put above other windows
+    if (window.style.display == "none") {
+        window.style.display = "block";
+    } else {
+        window.style.display = "none";
+    }
+    // removes the previously clicked window's id from the array and puts it on the end
+    const index = window_order.indexOf(id);
+    if (index !== -1) {
+        window_order.splice(index, 1);
+    }
+    window_order.push(id);
+
+    // orders the z-index of the windows based on order of last clicked
+    var i = 10;
+    for (const temp_id of window_order){
+        document.getElementById(temp_id).style.zIndex = i;
+        i += 1;
+    }
+}
+
+// closes window and removes taskbar button
 function windowClose(id, task_id) {
     var window = document.getElementById(id);
-    var taskbar_icon = document.getElementById(task_id)
+    var taskbar_button = document.getElementById(task_id);
     
     window.style.display = "none";
-    taskbar_icon.style.display = "none";
+    taskbar_button.remove();
 }
 
 // minimises window
