@@ -20,6 +20,7 @@
     </div>
 
     <main id="os">
+
         <div id="shortcut-container">
             <!-- change the value passed in 'windowOpen()' to be the id of the window + taskbar related to the shortcut -->
             <button class="shortcut" ondblclick="windowOpen('window1', 'taskbar-icon-1')">
@@ -39,14 +40,14 @@
         <div id="window-container">
             
             <!-- window 1 -->
-            <div class="window" id="window1">
+            <div class="window" id="window1" data-width="" data-height="" maximised="false">
                 <div class="windowheader">
                     <!-- make sure that the id is named 'window' + 'number' + 'Name' -->
                     <p id="window1Name">window 1</p>
                     <div class="button-container">
                         <!-- change the value passed in 'windowClose()' to be the id of the window -->
                         <button class="maxmin-window" onclick="windowMinimise('window1')">-</button>
-                        <button class="maxmin-window" onclick="windowClose('window1', 'taskbar-icon-1')">□</button>
+                        <button class="maxmin-window" onclick="windowMaximise('window1')">□</button>
                         <button class="close-window" onclick="windowClose('window1', 'taskbar-icon-1')">X</button>
                     </div>
                 </div>
@@ -65,14 +66,14 @@
             </div>
 
             <!-- window 2 -->
-            <div class="window" id="window2">
+            <div class="window" id="window2" data-width="" data-height="" maximised="false">
                 <div class="windowheader">
                     <!-- make sure that the id is named 'window' + 'number' + 'Name' -->
                     <p id="window2Name">window 2</p>
                     <div class="button-container">
                         <!-- change the value passed in 'windowClose()' to be the id of the window -->
                         <button class="maxmin-window" onclick="windowMinimise('window2')">-</button>
-                        <button class="maxmin-window" onclick="windowClose('window2', 'taskbar-icon-2')">□</button>
+                        <button class="maxmin-window" onclick="windowMaximise('window2')">□</button>
                         <button class="close-window" onclick="windowClose('window2', 'taskbar-icon-2')">X</button>
                     </div>
                 </div>
@@ -91,14 +92,14 @@
             </div>
 
             <!-- window 3 -->
-            <div class="window" id="window3">
+            <div class="window" id="window3" data-width="" data-height="" maximised="false">
                 <div class="windowheader">
                     <!-- make sure that the id is named 'window' + 'number' + 'Name' -->
                     <p id="window3Name">window 3</p>
                     <div class="button-container">
                         <!-- change the value passed in 'windowClose()' to be the id of the window and taskbar element -->
                         <button class="maxmin-window" onclick="windowMinimise('window3')">-</button>
-                        <button class="maxmin-window" onclick="windowClose('window3', 'taskbar-icon-3')">□</button>
+                        <button class="maxmin-window" onclick="windowMaximise('window3')">□</button>
                         <button class="close-window" onclick="windowClose('window3', 'taskbar-icon-3')">X</button>
                     </div>
                 </div>
@@ -115,17 +116,17 @@
 
                 <div class="resize-handle"></div>
             </div>
-
         </div>
 
-        <footer class="taskbar">
-            <button id="start">
-                Start
-            </button>
-            <!-- contains all the taskbar buttons that are created in scripts.js -->
-            <div id="taskbar-container"></div>
-        </footer>
     </main>
+
+    <footer class="taskbar">
+        <button id="start">
+            Start
+        </button>
+        <!-- contains all the taskbar buttons that are created in scripts.js -->
+        <div id="taskbar-container"></div>
+    </footer>
 
     <script src="./script.js"></script>
 </body>

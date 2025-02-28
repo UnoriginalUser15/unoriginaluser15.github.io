@@ -1,7 +1,7 @@
 setTimeout(function(){
     document.getElementById("start-up").style.display = "none";
     document.getElementById("os").style.display = "block";
-}, 5500);
+}, 0);
 
 // 5500 is the actual time that should be used in the code above
 // 0 is just for testing/dev purposes
@@ -15,7 +15,7 @@ setTimeout(function(){
 
 // after a 5 minute coding adventure (2 hours), the system that controls the order of windows is done
 
-var window_order = [];
+let window_order = [];
 const desktop = document.getElementById("window-container");
 
 // this creates the array of window ids
@@ -30,7 +30,7 @@ for (const window of desktop.children){
 
 // controls everything to do with dragging a window
 function dragElement(elmnt, window_order) {
-    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
     if (elmnt.querySelector(".windowheader")) {
         // if present, the header is where you move the window from
         elmnt.querySelector(".windowheader").onmousedown = dragMouseDown;
@@ -38,7 +38,8 @@ function dragElement(elmnt, window_order) {
         // otherwise, move the window from anywhere inside the window
         elmnt.onmousedown = dragMouseDown;
     }
-
+    
+    // puts the current window on top
     elmnt.onmousedown = orderWindows;
 
     function dragMouseDown(e) {
@@ -53,6 +54,21 @@ function dragElement(elmnt, window_order) {
     }
 
     function elementDrag(e) {
+
+        // makes the window return to original size if maximised
+        if (elmnt.getAttribute("maximised") == "true") {
+            // positions the window to where your mouse is
+            elmnt.style.top = pos4 + "px";
+            elmnt.style.left = pos3 + "px";
+            // makes the window the original size
+            elmnt.style.width = elmnt.getAttribute("data-width");
+            elmnt.style.height = elmnt.getAttribute("data-height");
+            // adds the curved top corners
+            elmnt.style.borderRadius = "0.5rem 0.5rem 0rem 0rem";
+            
+            elmnt.setAttribute("maximised", false);
+        }
+        
         e = e || window.event;
         e.preventDefault();
         // calculate the new cursor position
@@ -77,7 +93,6 @@ function dragElement(elmnt, window_order) {
 
     function orderWindows() {
         const id = elmnt.getAttribute("id");
-
         // removes the previously clicked window's id from the array and puts it on the end
         const index = window_order.indexOf(id);
         if (index !== -1) {
@@ -86,7 +101,7 @@ function dragElement(elmnt, window_order) {
         window_order.push(id);
 
         // orders the z-index of the windows based on order of last clicked
-        var i = 10;
+        let i = 10;
         for (const temp_id of window_order){
             document.getElementById(temp_id).style.zIndex = i;
             i += 1;
@@ -129,7 +144,7 @@ function windowOpen(id, task_id) {
     window_order.push(id);
 
     // orders the z-index of the windows based on order of last clicked
-    var i = 10;
+    let i = 10;
     for (const temp_id of window_order){
         document.getElementById(temp_id).style.zIndex = i;
         i += 1;
@@ -153,7 +168,7 @@ function taskbarClick(id) {
     window_order.push(id);
 
     // orders the z-index of the windows based on order of last clicked
-    var i = 10;
+    let i = 10;
     for (const temp_id of window_order){
         document.getElementById(temp_id).style.zIndex = i;
         i += 1;
@@ -162,8 +177,8 @@ function taskbarClick(id) {
 
 // closes window and removes taskbar button
 function windowClose(id, task_id) {
-    var window = document.getElementById(id);
-    var taskbar_button = document.getElementById(task_id);
+    const window = document.getElementById(id);
+    const taskbar_button = document.getElementById(task_id);
     
     window.style.display = "none";
     taskbar_button.remove();
@@ -171,6 +186,56 @@ function windowClose(id, task_id) {
 
 // minimises window
 function windowMinimise(id) {
-    var window = document.getElementById(id);
+    const window = document.getElementById(id);
     window.style.display = "none";
+}
+
+// maximises window
+function windowMaximise(id) {
+    const window = document.getElementById(id);
+    const os = document.getElementById("os");
+
+    const osWidth = os.clientWidth.toString();
+    const osHeight = os.clientHeight.toString();
+
+    if (window.getAttribute("maximised") == "false") {
+        // stores the width + height prior to maximising
+        window.setAttribute("data-width", window.clientWidth + "px");
+        window.setAttribute("data-height", window.clientHeight + "px");
+        // sets maximise to true
+        window.setAttribute("maximised", true);
+
+        // puts the window in the top left of the page 
+        window.style.top = "0px";
+        window.style.left = "0px";
+
+        // makes the window the size of the desktop
+        window.style.width = osWidth + "px";
+        window.style.height = osHeight + "px";
+
+        // removes the rounding at the top of the window
+        window.style.borderRadius = "0px";
+
+        // removes the previously clicked window's id from the array and puts it on the end
+        const index = window_order.indexOf(id);
+        if (index !== -1) {
+            window_order.splice(index, 1);
+        }
+        window_order.push(id);
+
+        // orders the z-index of the windows based on order of last clicked
+        let i = 10;
+        for (const temp_id of window_order){
+            document.getElementById(temp_id).style.zIndex = i;
+            i += 1;
+        }
+    } else {
+        // if the window is already maximised it reverts to original size
+        window.style.width = window.getAttribute("data-width");
+        window.style.height = window.getAttribute("data-height");
+        // adds the curved top corners
+        window.style.borderRadius = "0.5rem 0.5rem 0rem 0rem";
+
+        window.setAttribute("maximised", false);
+    }
 }

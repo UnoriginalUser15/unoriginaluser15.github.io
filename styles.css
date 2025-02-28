@@ -36,7 +36,11 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
+
+    height: 100vh;
 }
 
 /*start up screen*/
@@ -112,9 +116,9 @@ body {
 #os {
     background: var(--bold);
     background-repeat: no-repeat;
-
+    
+    flex-grow: 1;
     width: 100vw;
-    height: 100vh;
 }
 
 
@@ -124,7 +128,7 @@ body {
     float: left;
 
     width: 8rem;
-    height: 100vh;
+    height: 100%;
     z-index: 2;
 }
 
@@ -261,7 +265,7 @@ body {
     border-left: 0.125rem solid var(--primary-tint);
     border-bottom: 0.125rem solid var(--primary-tone);
     border-right: 0.125rem solid var(--primary-tone);
-    outline: 0.125rem solid var(--secondary-shade);
+    outline: 0.125rem solid var(--bold);
 
     text-align: center;
 
@@ -365,7 +369,6 @@ footer {
     background: linear-gradient(to bottom, var(--inverse) 0%, var(--inverse) 8.33%, var(--inverse-tone) 8.33%, var(--inverse-tone) 100%);
     
     display: flex;
-    position: fixed;
 
     bottom: 0;
     right: 0;
