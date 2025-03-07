@@ -133,8 +133,8 @@ body {
 }
 
 .shortcut {
-    font-family: 'Lato', serif;
-    font-weight: 350;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
     font-size: 1rem;
 
     user-select: none;
@@ -185,19 +185,22 @@ body {
     z-index: 2;
 }
 
+/* REMEMBER (21st night of september) when changing height/width
+here to also change original-height/width in the repective window's
+atributes */
 #window1 {
     width: 256px;
     height: 518px;
 }
 
 #window2 {
-    width: 518px;
+    width: 256px;
     height: 518px;
 }
 
 #window3 {
-    width: 320px;
-    height: 640px;
+    width: 256px;
+    height: 518px;
 }
 
 
@@ -254,7 +257,7 @@ body {
 }
 
 .close-window {
-    font-family: 'Lato', serif;
+    font-family: 'Lato', sans-serif;
     font-weight: 600;
     font-size: 0.85rem;
     
@@ -295,7 +298,7 @@ body {
 }
 
 .maxmin-window {
-    font-family: 'Lato', serif;
+    font-family: 'Lato', sans-serif;
     font-weight: 600;
     font-size: 0.85rem;
     
@@ -356,19 +359,13 @@ footer {
     bottom: 0;
 }
 
-#taskbar-container {
-    background-color: var(--inverse-tone);
-    border-top: 0.25rem solid var(--inverse);
-
-    display: flex;
-
-    height: 3rem;
-}
-
-.taskbar {
+#taskbar {
+    user-select: none;
+    
     background: linear-gradient(to bottom, var(--inverse) 0%, var(--inverse) 8.33%, var(--inverse-tone) 8.33%, var(--inverse-tone) 100%);
     
     display: flex;
+    align-items: center;
 
     bottom: 0;
     right: 0;
@@ -377,44 +374,20 @@ footer {
     z-index: 500;
 }
 
-.taskbar-button {
-    font-family: 'Zilla Slab', sans-serif;
-    font-size: 1rem;
+#taskbar-container {
+    flex-grow: 1;
+    background-color: var(--inverse-tone);
+    border-top: 0.25rem solid var(--inverse);
 
-    user-select: none;
+    display: flex;
 
-    background: var(--secondary);
-    color: var(--inverse);
-
-    border-top: 0.25rem solid var(--secondary-tint);
-    border-left: 0.25rem solid var(--secondary-tint);
-    border-bottom: 0.25rem solid var(--secondary-tone);
-    border-right: 0.25rem solid var(--secondary-tone);
-
-    text-align: left;
-    
-    margin: 0.125rem 0.125rem;
-    padding: 0rem 0.125rem;
-
-    width: 10rem;
-    height: 2.25rem;
-
-    &:active {
-        background: var(--secondary-tone);
-    
-        border-top: 0.25rem solid var(--secondary-shade);
-        border-left: 0.25rem solid var(--secondary-shade);
-        border-bottom: 0.25rem solid var(--secondary);
-        border-right: 0.25rem solid var(--secondary);
-    }
+    height: 3rem;
 }
 
 #start {
     font-family: 'Zilla Slab', sans-serif;
     font-size: 1.75rem;
     font-weight: 600;
-
-    user-select: none;
 
     background: var(--primary);
     background: linear-gradient(145deg, rgba(234,82,111,1) 0%, rgba(218,27,62,1) 100%);
@@ -439,4 +412,78 @@ footer {
         border-bottom: 0.25rem solid var(--primary-tone);
         border-right: 0.25rem solid var(--primary-tone);
     }
+}
+
+.taskbar-button {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+
+    background: var(--secondary);
+    color: var(--inverse);
+
+    border-top: 0.25rem solid var(--secondary-tint);
+    border-left: 0.25rem solid var(--secondary-tint);
+    border-bottom: 0.25rem solid var(--secondary-tone);
+    border-right: 0.25rem solid var(--secondary-tone);
+
+    text-align: left;
+    
+    margin: 0.125rem 0.125rem;
+    padding: 0rem 0.5rem;
+
+    width: 10rem;
+    height: 2.25rem;
+
+    &:active {
+        background: var(--secondary-tone);
+    
+        border-top: 0.25rem solid var(--secondary-shade);
+        border-left: 0.25rem solid var(--secondary-shade);
+        border-bottom: 0.25rem solid var(--secondary);
+        border-right: 0.25rem solid var(--secondary);
+    }
+}
+
+#window-reset {
+    background-color: var(--accent);
+
+    border-top: 0.25rem solid var(--accent-tint);
+    border-left: 0.25rem solid var(--accent-tint);
+    border-bottom: 0.25rem solid var(--accent-tone);
+    border-right: 0.25rem solid var(--accent-tone);
+
+    margin: 0.25rem 0.25rem;
+    padding: 0.25rem 0.25rem;
+
+    width: 2.25rem;
+    height: 2.25rem;
+
+    &:hover {
+        background-color: var(--accent-tone);
+
+        border-top: 0.25rem solid var(--accent);
+        border-left: 0.25rem solid var(--accent);
+        border-bottom: 0.25rem solid var(--accent-shade);
+        border-right: 0.25rem solid var(--accent-shade);
+    }
+
+    &:active {
+        border-top: 0.25rem solid var(--accent-shade);
+        border-left: 0.25rem solid var(--accent-shade);
+        border-bottom: 0.25rem solid var(--accent);
+        border-right: 0.25rem solid var(--accent);
+    }
+
+    img {
+        height: 100%;
+    }
+}
+
+#clock {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+
+    margin: 0.25rem;
 }

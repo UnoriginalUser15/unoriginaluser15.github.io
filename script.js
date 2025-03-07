@@ -1,7 +1,7 @@
-setTimeout(function(){
+setTimeout(() => {
     document.getElementById("start-up").style.display = "none";
     document.getElementById("os").style.display = "block";
-}, 0);
+}, 5500);
 
 // 5500 is the actual time that should be used in the code above
 // 0 is just for testing/dev purposes
@@ -20,7 +20,7 @@ const desktop = document.getElementById("window-container");
 
 // this creates the array of window ids
 for (const window of desktop.children){
-    window_order.push(window.getAttribute("id"))
+    window_order.push(window.getAttribute("id"));
 }
 
 // this calls the dragElement() function
@@ -239,3 +239,41 @@ function windowMaximise(id) {
         window.setAttribute("maximised", false);
     }
 }
+
+// resets window to it's original qualities
+function windowReset(window_order) {
+    // iterates through windows
+    window_order.forEach((id) => {
+        let window = document.getElementById(id);
+
+        // moves window to the top right of the page
+        window.style.top = "0px";
+        window.style.left = "0px";
+
+        // sets data size values to the original size
+        window.setAttribute("data-width", window.getAttribute("original-width"));
+        window.setAttribute("data-height", window.getAttribute("original-height"));
+
+        // resets window to original size
+        window.style.width = window.getAttribute("original-width");
+        window.style.height = window.getAttribute("original-height");
+    });
+}
+
+// gets current time for the clock
+setInterval(() => {
+    const today = new Date();
+
+    let hour = today.getHours();
+    let minute = today.getMinutes();
+
+    hour = checkTime(hour);
+    minute = checkTime(minute);
+
+    document.getElementById('clock').innerHTML =  hour + ":" + minute ;
+
+    function checkTime(i) {
+        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+        return i;
+    }
+}, 1000);

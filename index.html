@@ -40,7 +40,8 @@
         <div id="window-container">
             
             <!-- window 1 -->
-            <div class="window" id="window1" data-width="" data-height="" maximised="false">
+            <div class="window" id="window1" data-width="" data-height="" maximised="false" 
+            original-width="256px" original-height="518px">
                 <div class="windowheader">
                     <!-- make sure that the id is named 'window' + 'number' + 'Name' -->
                     <p id="window1Name">window 1</p>
@@ -66,7 +67,8 @@
             </div>
 
             <!-- window 2 -->
-            <div class="window" id="window2" data-width="" data-height="" maximised="false">
+            <div class="window" id="window2" data-width="" data-height="" maximised="false"
+            original-width="256px" original-height="518px">
                 <div class="windowheader">
                     <!-- make sure that the id is named 'window' + 'number' + 'Name' -->
                     <p id="window2Name">window 2</p>
@@ -92,7 +94,8 @@
             </div>
 
             <!-- window 3 -->
-            <div class="window" id="window3" data-width="" data-height="" maximised="false">
+            <div class="window" id="window3" data-width="" data-height="" maximised="false"
+            original-width="256px" original-height="518px">
                 <div class="windowheader">
                     <!-- make sure that the id is named 'window' + 'number' + 'Name' -->
                     <p id="window3Name">window 3</p>
@@ -120,12 +123,16 @@
 
     </main>
 
-    <footer class="taskbar">
+    <footer id="taskbar">
         <button id="start">
             Start
         </button>
         <!-- contains all the taskbar buttons that are created in scripts.js -->
         <div id="taskbar-container"></div>
+        <button id="window-reset" onclick="windowReset(window_order)">
+            <img src="./assets/refresh_icon.png" alt="Refresh Windows Icon">
+        </button>
+        <div id="clock"></div>
     </footer>
 
     <script src="./script.js"></script>
